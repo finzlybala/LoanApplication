@@ -1,0 +1,40 @@
+<div class="container" style="margin-top: 7%;">
+    <thead class="header" style="font-weight: bold;color:black;font-size:large">
+   PaymentSchedule :</thead>
+   
+     <br>
+     <div>
+         <table class="table table-bordered table-hover">
+           <thead>
+             <tr>
+              <th>S.No</th>
+             <th>Payment ID</th>
+             <th>Payment Date</th>
+             <th>Principal Amount</th>
+             <th>Projected Intrest</th>
+             <th>Payment Status</th>
+             <th>Payment Amount</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr *ngFor="let data of datas  | paginate: { itemsPerPage: 7, currentPage: p }; index as i">
+              <td>{{i+1}}</td>
+               <td>{{data.paymentId}}</td>
+               <td>{{data.paymentDate}}</td>
+               <td>{{data.principalamount}}</td>
+               <td>{{data.projectedIntrest}}</td>
+               <td>{{data.paymentStatus}}</td>
+               <td>{{data.paymentAmount}}</td>
+              <td><button class="btn btn-success" (click)="onConfirm(data.paymentId)" 
+                [disabled]='!(data.paymentStatus === "AwaitingPayment")'>Pay</button></td>
+                          
+              </tr>
+           </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event"
+        style="float:right ;"
+      ></pagination-controls>
+     </div>
+ 
+ </div>    
+ <button (click)="onClick()" class="btn btn-success" style="margin-left: 3cm;">Back</button>

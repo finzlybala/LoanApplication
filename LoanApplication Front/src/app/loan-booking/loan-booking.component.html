@@ -1,0 +1,90 @@
+
+<div class="clr" style="font-weight: bold; background-color: rgb(224, 226, 230);" >
+  <div class="header" style="text-align:center;font-size:35px;font-weight: bold;color:rgba(16, 78, 171, 0.755)">LOAN APPLICATION</div>
+ <div class="containner">
+    <div class="row ">
+        <div class="col-4" style="margin-top: 1.5cm;  margin-left: 3cm;">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        
+          <div class="form-group">
+            <label class="form-label">LoanAmount :</label>
+            <input type="number"  class="form-control" min="1" minlength="3" maxlength="10"
+            ngModel name="LoanAmount" #LoanAmount="ngModel" id="amount" required
+            placeholder="Enter the Loanamount" >
+
+            <div *ngIf="LoanAmount.touched && !LoanAmount.valid"
+            class="alert alert-danger">
+              Please enter the valid LoanAmount....
+          </div>
+        </div><br>
+
+        
+        <div class="myclass">
+          <label>Select Loan Start Date :</label>
+          <input type="date"  class="form-control" min="{{currentDate | date:'yyyy-MM-dd'}}" max="{{maxDate | date:'yyyy-MM-dd'}}" 
+          ngModel name="loanStartDate" #loanStartDate="ngModel" required>
+          <div *ngIf="loanStartDate.touched && !loanStartDate.valid"
+            class="alert alert-danger">
+          </div>
+      </div><br><br>
+        
+
+      <div class="myclass">
+        <label>Select Maturity Months :</label>
+        <select required class="form-control" #maturitydate="ngModel" name="maturitydate" ngModel>
+            <option *ngFor="let item of paymentendingfrequency" [value]="item">
+            {{item}} Months
+            </option>
+          </select>
+          <div *ngIf="maturitydate.touched && !maturitydate.valid"
+            class="alert alert-danger">
+          </div>
+    </div><br>
+
+
+           <div class="myclass">
+          <label>Select Payment Frequency :</label>
+          <select required class="form-control" #paymentfrequency="ngModel" name="paymentfrequency" ngModel>
+              <option *ngFor="let item of paymentStartingfrequency" [value]="item">
+              {{item}} Months
+              </option>
+            </select>
+            <div *ngIf="paymentfrequency.touched && !paymentfrequency.valid"
+            class="alert alert-danger">
+          </div>
+      </div> 
+
+
+              
+          <br>   
+                <div class="input-group mb-3">
+                  <label class="form-label">Rate of Intrest :</label>
+                  <input type="number"  class="form-control" min="1" max="10" 
+                  ngModel name="intrestrate" #intrestrate="ngModel" required >
+                </div><br>
+                 
+             <div class="myclass">
+          <label>Select Payment Terms :</label>
+          <select required class="form-control" #paymentterms="ngModel" name="paymentterms" ngModel>
+              <option *ngFor="let item of paymentterm" [value]="item">
+              {{item}} Day
+              </option>
+            </select>
+            <div *ngIf="paymentterms.touched && !paymentterms.valid"
+            class="alert alert-danger">
+          </div>
+              </div> <br>
+           
+              <button   [disabled]="!f.valid" value="Submit" class="btn btn-success">Submit</button> &nbsp;
+
+              <button (click)="onCancel()"   class="btn btn-danger">Cancel</button>
+
+
+
+              </form>
+            </div>    
+        </div>         
+    </div>         
+</div>
+
+<img src="../../assets/loanjpa.gif" >

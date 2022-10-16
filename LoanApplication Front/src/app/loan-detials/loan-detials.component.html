@@ -1,0 +1,37 @@
+<div class="container" style="margin-top: 7%;">
+   <thead class="header" style="font-weight: bold;color:black;font-size:large">
+  LoanDetails :</thead>
+  
+    <br>
+    <div>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+            <th>CustomerId</th>
+            <th>LoanAmount</th>
+            <th>TradeDate</th>
+            <th>LoanStartDate</th>
+            <th>MaturityMonth</th>
+            <th>PaymentFrequency(Months)</th>
+            <th>IntrestRate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of datas  | paginate: { itemsPerPage: 7, currentPage: p }">
+              <td><a [routerLink]="['/displayPaymentSchedule',data.customerId]">{{data.customerId}}</a></td>
+              <td>{{data.loanAmount}}</td>
+              <td>{{data.tradeDate}}</td>
+              <td>{{data.loanStartDate}}</td>
+              <td>{{data.maturityDate}}</td>
+              <td>{{data.paymentFrequency}}</td>
+              <td>{{data.intrestRate}}</td> 
+            </tr>
+          </tbody>
+       </table>
+       <pagination-controls (pageChange)="p = $event"
+      style="float:right ;"
+    ></pagination-controls>
+    </div>
+
+</div>
+<button (click)="onClick()" class="btn btn-success" style="margin-left: 3cm;">Back</button>    
