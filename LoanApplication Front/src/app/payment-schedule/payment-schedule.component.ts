@@ -31,9 +31,6 @@ export class PaymentScheduleComponent implements OnInit {
   onClick(){
     this.router.navigate(['displayloans']);
   }
-  // onConfirm(amount:any){
-  //   alert(`You was successfully Paid Rs ${amount} ....  And you can recheck your status by Tomorrow...!`)
-  // }
 
   onConfirm(paymentId:any){
     this.service.paymentStatus(paymentId)

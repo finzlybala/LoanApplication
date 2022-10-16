@@ -8,7 +8,7 @@
         
           <div class="form-group">
             <label class="form-label">LoanAmount :</label>
-            <input type="number"  class="form-control" min="1" minlength="3" maxlength="10"
+            <input type="number"  class="form-control" min="1" 
             ngModel name="LoanAmount" #LoanAmount="ngModel" id="amount" required
             placeholder="Enter the Loanamount" >
 
@@ -61,12 +61,12 @@
               
           <br>   
                 <div class="input-group mb-3">
-                  <label class="form-label">Rate of Intrest :</label>
+                  <label class="form-label">Rate of Interest :</label>
                   <input type="number"  class="form-control" min="1" max="10" 
                   ngModel name="intrestrate" #intrestrate="ngModel" required >
                   <div *ngIf="intrestrate.touched && !intrestrate.valid"
             class="alert alert-danger">
-            Please enter the valid intrestrate....
+            Please enter the valid interestrate....
           </div>
                 </div><br>
                  
@@ -74,7 +74,7 @@
           <label>Select Payment Terms :</label>
           <select required class="form-control" #paymentterms="ngModel" name="paymentterms" ngModel>
               <option *ngFor="let item of paymentterm" [value]="item">
-              {{item}} Day
+              {{item}} 
               </option>
             </select>
             <div *ngIf="paymentterms.touched && !paymentterms.valid"

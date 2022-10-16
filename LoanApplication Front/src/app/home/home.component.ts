@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpServiceService } from '../http-service.service';
 
 @Component({
@@ -8,12 +9,15 @@ import { HttpServiceService } from '../http-service.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service :HttpServiceService) { }
+  constructor(private service :HttpServiceService,
+    private router:Router) { }
 
   ngOnInit(): void {
   }
-  _tmpIntroHeadline: string = 'Welcome to Consumer Loan Application';
-  _tmpIntroDesc: string = 'Please fill four steps to apply for consumer loan. In the end will see all summary of loan information.';
-  _tmpIntroFooter = 'Thank you.'
-
+  onApplyLoan(){
+    this.router.navigate(['/createloan']);
+  }
+  onLoanDetials(){
+    this.router.navigate(['/displayloans']);
+  }
 }
