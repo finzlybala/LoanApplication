@@ -25,6 +25,7 @@
           ngModel name="loanStartDate" #loanStartDate="ngModel" required>
           <div *ngIf="loanStartDate.touched && !loanStartDate.valid"
             class="alert alert-danger">
+            Please enter the valid loanStartDate....
           </div>
       </div><br><br>
         
@@ -38,6 +39,7 @@
           </select>
           <div *ngIf="maturitydate.touched && !maturitydate.valid"
             class="alert alert-danger">
+            Please enter the valid maturitydate....
           </div>
     </div><br>
 
@@ -51,6 +53,7 @@
             </select>
             <div *ngIf="paymentfrequency.touched && !paymentfrequency.valid"
             class="alert alert-danger">
+            Please enter the valid paymentfrequency....
           </div>
       </div> 
 
@@ -61,6 +64,10 @@
                   <label class="form-label">Rate of Intrest :</label>
                   <input type="number"  class="form-control" min="1" max="10" 
                   ngModel name="intrestrate" #intrestrate="ngModel" required >
+                  <div *ngIf="intrestrate.touched && !intrestrate.valid"
+            class="alert alert-danger">
+            Please enter the valid intrestrate....
+          </div>
                 </div><br>
                  
              <div class="myclass">
@@ -72,6 +79,7 @@
             </select>
             <div *ngIf="paymentterms.touched && !paymentterms.valid"
             class="alert alert-danger">
+            Please enter the valid paymentterms....
           </div>
               </div> <br>
            
