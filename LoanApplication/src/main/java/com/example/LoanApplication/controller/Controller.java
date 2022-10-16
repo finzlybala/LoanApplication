@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,4 +43,9 @@ public class Controller {
      public Object print(@PathVariable int id) {
 		return service.getLoansByCustomerId(id);
 		}
+	@PutMapping("customer/payment/{id}")
+    public Object payment(@PathVariable int id) {
+         return service.PaymentChanger(id);
+           }
+ 
 }
